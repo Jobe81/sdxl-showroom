@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Äpplet",
+    "file": "images/äpple.png",
+    "tags": ["fruit", "sdxl", "natural light"],
+    "prompt": "Close up of an apple, sun rays reflect faint colors on the apple. The apple rests on a wooden table outdoors, blurry background, soft golden light, kodak portra 400, 85mm lens, shallow depth of field, DSLR photo, analog photography",
+    "negative": "low quality, poor lighting, watermark",
+    "checkpoint": "epicrealismXL_vxviLastflameRealism",
+    "VAE": "sdxl_vae",
+    "loras": ["add-detail-xl (1.5)", "cinestyle (0.6)", "Flux-XL_Scenery (0.6)", "Deep_depth_of_field (0.7)"],
+    "sampler": "DPM++ 2M SDE Heun",
+    "steps": 40,
+    "cfg": 7.5,
+    "seed": 1037382391,
+    "resolution": "896×1344",
+
+    "Hires_upscaler": "R-ESRGAN 4x+",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "25",
+    "Denoising_strength": "0.45",
+    "Clip_skip": "2",
+
+    "notes": "Första steget till att göra ett äpple i glas."
+  }
+]
