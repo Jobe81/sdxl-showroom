@@ -5,78 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jonte – SDXL Showroom</title>
   <style>
-    :root {
-      --bg: #0b0b0f;
-      --panel: #121218;
-      --muted: #9aa0a6;
-      --text: #e7e9ea;
-      --border: #1f2430;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 20% -10%, #111325 0%, transparent 50%),
-                  radial-gradient(1000px 700px at 120% 0%, #0e1a19 0%, transparent 40%),
-                  var(--bg);
-      color: var(--text);
-    }
-    header { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; }
-    h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.3px; }
-    .lead { color: var(--muted); font-size: 14px; }
-    .controls { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-    .control { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; color: var(--text); }
-    .control input, .control select { background: transparent; border: none; color: var(--text); outline: none; width: 220px; }
-
-    main { max-width: 1200px; margin: 18px auto 60px; padding: 0 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
-    .thumb { aspect-ratio: 4/5; width: 100%; object-fit: cover; background:#0d0f12; }
-    .meta { padding: 10px 12px 12px; }
-    .title { font-weight: 700; font-size: 15px; margin: 2px 0 6px; letter-spacing: .2px; }
-    .tags { display:flex; gap:6px; flex-wrap: wrap; }
-    .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; border:1px solid var(--border); background:#0f121a; color: #cfd3d7; }
-    .open { margin-top: 10px; background: #151a22; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; cursor: pointer; }
-    .open:hover { border-color:#2a3243; }
-
-    dialog { width:min(980px, 95vw); border:none; padding:0; border-radius:16px; overflow:hidden; background: var(--panel); color: var(--text); }
-    dialog::backdrop { background: rgba(0,0,0,.6); }
-    .modal { display:grid; grid-template-columns: 1fr 1fr; }
-    .modal .left { background:#0b0d12; }
-    .modal img { width: 100%; height: 100%; object-fit: contain; background:#0b0d12; }
-    .modal .right { padding:16px 18px; border-left:1px solid var(--border); max-height: 80vh; overflow:auto; }
-    .row { margin: 10px 0; }
-    .label { font-size:11px; text-transform:uppercase; letter-spacing:.15em; color: var(--muted); margin-bottom: 6px; }
-    .value { white-space: pre-wrap; line-height: 1.4; }
-    .kvs { display:grid; grid-template-columns: 140px 1fr; gap: 8px 12px; font-size: 14px; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12.5px; }
-    .pill { display:inline-block; padding: 2px 8px; border:1px solid var(--border); border-radius: 999px; margin-right:6px; margin-bottom:6px; font-size: 12px; background:#0f1218; }
-    .actions { display:flex; gap:10px; margin-top:12px; }
-    .btn { background: #1a1f2b; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 10px; cursor: pointer; }
-    .btn:hover { border-color:#2a3243; }
-    footer { max-width:1200px; margin:24px auto; padding:0 20px; color: var(--muted); font-size: 12px; }
-
-    @media (max-width: 800px) {
-      .modal { grid-template-columns: 1fr; }
-      .modal .right { border-left:none; border-top:1px solid var(--border); max-height: 70vh; }
-    }
+    :root { --bg:#0b0b0f; --panel:#121218; --muted:#9aa0a6; --text:#e7e9ea; --border:#1f2430; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:radial-gradient(1200px 800px at 20% -10%, #111325 0%, transparent 50%),radial-gradient(1000px 700px at 120% 0%, #0e1a19 0%, transparent 40%),var(--bg); color:var(--text)}
+    header{max-width:1200px;margin:24px auto 0;padding:0 20px}
+    h1{margin:0 0 6px;font-size:28px;letter-spacing:-.3px}
+    .lead{color:var(--muted);font-size:14px}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .control{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:10px 12px;color:var(--text)}
+    .control input,.control select{background:transparent;border:none;color:var(--text);outline:none;width:220px}
+    main{max-width:1200px;margin:18px auto 60px;padding:0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .thumb{aspect-ratio:4/5;width:100%;object-fit:cover;background:#0d0f12}
+    .meta{padding:10px 12px 12px}
+    .title{font-weight:700;font-size:15px;margin:2px 0 6px;letter-spacing:.2px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:#0f121a;color:#cfd3d7}
+    .open{margin-top:10px;background:#151a22;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;cursor:pointer}
+    .open:hover{border-color:#2a3243}
+    dialog{width:min(980px,95vw);border:none;padding:0;border-radius:16px;overflow:hidden;background:var(--panel);color:var(--text)}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .modal{display:grid;grid-template-columns:1fr 1fr}
+    .modal .left{background:#0b0d12}
+    .modal img{width:100%;height:100%;object-fit:contain;background:#0b0d12}
+    .modal .right{padding:16px 18px;border-left:1px solid var(--border);max-height:80vh;overflow:auto}
+    .row{margin:10px 0}
+    .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:6px}
+    .value{white-space:pre-wrap;line-height:1.4}
+    .kvs{display:grid;grid-template-columns:140px 1fr;gap:8px 12px;font-size:14px}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12.5px}
+    .pill{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:999px;margin-right:6px;margin-bottom:6px;font-size:12px;background:#0f1218}
+    .actions{display:flex;gap:10px;margin-top:12px}
+    .btn{background:#1a1f2b;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;cursor:pointer}
+    .btn:hover{border-color:#2a3243}
+    footer{max-width:1200px;margin:24px auto;padding:0 20px;color:var(--muted);font-size:12px}
+    @media(max-width:800px){.modal{grid-template-columns:1fr}.modal .right{border-left:none;border-top:1px solid var(--border);max-height:70vh}}
   </style>
 </head>
 <body>
   <header>
     <h1>Jonte – SDXL Showroom</h1>
-    <div class="lead">Välkommen till mitt enkla galleri för AI‑bilder med metadata (prompt, checkpoint, LoRA, parametrar).</div>
-
+    <div class="lead">Välkommen till mitt galleri för AI‑bilder med metadata (prompt, checkpoint, LoRA, parametrar).</div>
     <div class="controls">
       <div class="control"><input id="search" placeholder="Sök (titel, taggar, prompt)…" /></div>
       <div class="control">
-        <select id="tagFilter">
-          <option value="">Filtrera på tagg…</option>
-        </select>
-      </div>
-      <div class="control">
-        <label class="mono" style="font-size:12px; color:var(--muted)"><input type="checkbox" id="nsfwToggle" /> Visa NSFW</label>
+        <select id="tagFilter"><option value="">Filtrera på tagg…</option></select>
       </div>
     </div>
   </header>
@@ -89,22 +63,10 @@
     <div class="modal">
       <div class="left"><img id="dlgImg" alt="Bild" loading="lazy" /></div>
       <div class="right">
-        <div class="row">
-          <div class="label">Titel</div>
-          <div id="dlgTitle" class="value"></div>
-        </div>
-        <div class="row">
-          <div class="label">Taggar</div>
-          <div id="dlgTags" class="value"></div>
-        </div>
-        <div class="row">
-          <div class="label">Prompt</div>
-          <div id="dlgPrompt" class="value mono"></div>
-        </div>
-        <div class="row">
-          <div class="label">Negativ prompt</div>
-          <div id="dlgNPrompt" class="value mono"></div>
-        </div>
+        <div class="row"><div class="label">Titel</div><div id="dlgTitle" class="value"></div></div>
+        <div class="row"><div class="label">Taggar</div><div id="dlgTags" class="value"></div></div>
+        <div class="row"><div class="label">Prompt</div><div id="dlgPrompt" class="value mono"></div></div>
+        <div class="row"><div class="label">Negativ prompt</div><div id="dlgNPrompt" class="value mono"></div></div>
         <div class="row">
           <div class="label">Teknik</div>
           <div class="kvs value">
@@ -118,14 +80,8 @@
             <div>Resolution</div><div id="dlgRes"></div>
           </div>
         </div>
-        <div class="row">
-          <div class="label">Avancerat</div>
-          <div id="dlgExtra" class="value kvs"></div>
-        </div>
-        <div class="row">
-          <div class="label">Kommentar</div>
-          <div id="dlgNotes" class="value"></div>
-        </div>
+        <div class="row"><div class="label">Avancerat</div><div id="dlgExtra" class="value kvs"></div></div>
+        <div class="row"><div class="label">Kommentar</div><div id="dlgNotes" class="value"></div></div>
         <div class="actions">
           <button class="btn" id="copyMeta">Kopiera metadata</button>
           <button class="btn" id="closeDlg">Stäng</button>
@@ -135,185 +91,112 @@
   </dialog>
 
   <footer>
-    <div>🔧 Uppdatering: Redigera bara variabeln <span class="mono">GALLERY</span> i koden och ladda upp nya bilder i mappen <span class="mono">/images</span>. Lägg till poster så dyker de upp. Den här sidan är helt statisk och funkar rakt av på GitHub Pages.</div>
+    <div>🔧 Uppdatering: Lägg bilder i <span class="mono">/images</span> och poster i <span class="mono">gallery.json</span>. Den här sidan är statisk och funkar rakt av på GitHub Pages.</div>
   </footer>
 
   <script>
-    // === 1) DINA BILDER HÄR ===
-    const GALLERY = [
-      {
-        title: "Äpplet",
-        file: "images/äpple.png",
-        tags: ["fruit","sdxl","natural light"],
-        nsfw: false,
-        prompt: "Close up of an apple, sun rays reflect faint colors on the apple. The apple rests on a wooden table outdoors, blurry background, soft golden light, kodak portra 400, 85mm lens, shallow depth of field, DSLR photo, analog photography",
-        negative: "low quality, poor lighting, watermark",
-        checkpoint: "epicrealismXL_vxviLastflameRealism",
-        VAE: "sdxl_vae",
-        loras: ["add-detail-xl (1.5)", "cinestyle (0.6)", "Flux-XL_Scenery (0.6)", "Deep_depth_of_field (0.7)"],
-        sampler: "DPM++ 2M SDE Heun",
-        steps: 40,
-        cfg: 7.5,
-        seed: 1037382391,
-        resolution: "896×1344",
-        // Avancerat – visas automatiskt
-        Hires_upscaler: "R-ESRGAN 4x+",
-        Hires_upscale: "1.5",
-        Hires_steps: "25",
-        Denoising_strength: "0.45",
-        Clip_skip: "2",
-        notes: "Första steget till att göra ett äpple i glas."
-      },
-      {
-        title: "Neon Alley Runner",
-        file: "images/sample-02.jpg",
-        tags: ["cyberpunk", "full body", "city"],
-        nsfw: false,
-        prompt: "sdxl cyberpunk runner, rain, neon spray, reflective asphalt, volumetric fog, 85mm lens",
-        negative: "overexposed, blown highlights, cartoon",
-        checkpoint: "juggernautXL",
-        loras: ["neon_city_atmo_xl (0.6)"],
-        sampler: "DPM++ SDE Karras",
-        steps: 30,
-        cfg: 6,
-        seed: 987654321,
-        resolution: "1344×768",
-        notes: "Latta upp kontrasten i post om du vill ha mer punch."
-      }
-    ];
-
-    // === 2) RENDER LOGIC ===
     const grid = document.getElementById('grid');
     const search = document.getElementById('search');
     const tagFilter = document.getElementById('tagFilter');
-    const nsfwToggle = document.getElementById('nsfwToggle');
+
+    const dlg = document.getElementById('dlg');
+    const dlgImg = document.getElementById('dlgImg');
+    const dlgTitle = document.getElementById('dlgTitle');
+    const dlgTags = document.getElementById('dlgTags');
+    const dlgPrompt = document.getElementById('dlgPrompt');
+    const dlgNPrompt = document.getElementById('dlgNPrompt');
+    const dlgCkpt = document.getElementById('dlgCkpt');
+    const dlgVae = document.getElementById('dlgVae');
+    const dlgLoras = document.getElementById('dlgLoras');
+    const dlgSampler = document.getElementById('dlgSampler');
+    const dlgSteps = document.getElementById('dlgSteps');
+    const dlgCfg = document.getElementById('dlgCfg');
+    const dlgSeed = document.getElementById('dlgSeed');
+    const dlgRes = document.getElementById('dlgRes');
+    const dlgNotes = document.getElementById('dlgNotes');
+    const dlgExtra = document.getElementById('dlgExtra');
 
     function uniq(arr){ return [...new Set(arr.flat().filter(Boolean))]; }
     function normalize(s){ return (s||'').toString().toLowerCase(); }
 
-    function buildTagOptions(){
-      const all = uniq(GALLERY.map(g=>g.tags||[]));
-      for(const t of all){
-        const opt=document.createElement('option');
-        opt.value=t; opt.textContent=t; tagFilter.appendChild(opt);
-      }
-    }
-
     function card(g){
-      const el=document.createElement('div');
-      el.className='card';
-      el.innerHTML=`
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML = `
         <img class="thumb" src="${g.file}" alt="${g.title||''}" loading="lazy" />
         <div class="meta">
           <div class="title">${g.title||'Untitled'}</div>
           <div class="tags">${(g.tags||[]).map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
           <button class="open">Visa detaljer</button>
         </div>`;
-      el.querySelector('.open').addEventListener('click',()=>openModal(g));
+      el.querySelector('.open').addEventListener('click', ()=> openModal(g));
       return el;
     }
 
-    function matchesQuery(g,q){
-      if(!q) return true;
-      const hay=[g.title,...(g.tags||[]),g.prompt,g.negative,g.checkpoint,(g.loras||[]).join(',')].map(normalize).join('
-');
-      return hay.includes(normalize(q));
-    }
-
-    function matchesTag(g,tag){ if(!tag) return true; return (g.tags||[]).includes(tag); }
-    function matchesNSFW(g,show){ return show?true:!g.nsfw; }
-
-    function render(){
-      const q=search.value.trim();
-      const t=tagFilter.value; const show=nsfwToggle.checked;
-      grid.innerHTML='';
-      GALLERY.filter(g=>matchesQuery(g,q)&&matchesTag(g,t)&&matchesNSFW(g,show))
-             .forEach(g=>grid.appendChild(card(g)));
-      if(!grid.children.length){
-        const empty=document.createElement('div');
-        empty.className='control';
-        empty.textContent='Inga bilder matchar filtret. Justera sökningen.';
-        grid.appendChild(empty);
-      }
-    }
-
-    search.addEventListener('input',render);
-    tagFilter.addEventListener('change',render);
-    nsfwToggle.addEventListener('change',render);
-
-    // === Modal ===
-    const dlg=document.getElementById('dlg');
-    const dlgImg=document.getElementById('dlgImg');
-    const dlgTitle=document.getElementById('dlgTitle');
-    const dlgTags=document.getElementById('dlgTags');
-    const dlgPrompt=document.getElementById('dlgPrompt');
-    const dlgNPrompt=document.getElementById('dlgNPrompt');
-    const dlgCkpt=document.getElementById('dlgCkpt');
-    const dlgVae=document.getElementById('dlgVae');
-    const dlgLoras=document.getElementById('dlgLoras');
-    const dlgSampler=document.getElementById('dlgSampler');
-    const dlgSteps=document.getElementById('dlgSteps');
-    const dlgCfg=document.getElementById('dlgCfg');
-    const dlgSeed=document.getElementById('dlgSeed');
-    const dlgRes=document.getElementById('dlgRes');
-    const dlgNotes=document.getElementById('dlgNotes');
-    const dlgExtra=document.getElementById('dlgExtra');
-
     function openModal(g){
-      dlgImg.src=g.file; dlgImg.alt=g.title||'';
-      dlgTitle.textContent=g.title||'';
-      dlgTags.innerHTML=(g.tags||[]).map(t=>`<span class='pill'>${t}</span>`).join('');
-      dlgPrompt.textContent=g.prompt||'';
-      dlgNPrompt.textContent=g.negative||'';
-      dlgCkpt.textContent=g.checkpoint||'';
-      dlgVae.textContent=g.VAE||g.vae||'';
-      dlgLoras.textContent=(g.loras||[]).join(', ');
-      dlgSampler.textContent=g.sampler||'';
-      dlgSteps.textContent=(g.steps??'')+'';
-      dlgCfg.textContent=(g.cfg??'')+'';
-      dlgSeed.textContent=(g.seed??'')+'';
-      dlgRes.textContent=g.resolution||'';
-      dlgNotes.textContent=g.notes||'';
+      dlgImg.src = g.file; dlgImg.alt = g.title||'';
+      dlgTitle.textContent = g.title||'';
+      dlgTags.innerHTML = (g.tags||[]).map(t=>`<span class='pill'>${t}</span>`).join('');
+      dlgPrompt.textContent = g.prompt||'';
+      dlgNPrompt.textContent = g.negative||'';
+      dlgCkpt.textContent = g.checkpoint||'';
+      dlgVae.textContent = g.VAE || g.vae || '';
+      dlgLoras.textContent = (g.loras||[]).join(', ');
+      dlgSampler.textContent = g.sampler||'';
+      dlgSteps.textContent = (g.steps??'')+'';
+      dlgCfg.textContent = (g.cfg??'')+'';
+      dlgSeed.textContent = (g.seed??'')+'';
+      dlgRes.textContent = g.resolution||'';
+      dlgNotes.textContent = g.notes||'';
 
-      // Avancerade nycklar: allt som inte är "kända" visas automatiskt
-      const known=new Set(['title','file','tags','nsfw','prompt','negative','checkpoint','loras','sampler','steps','cfg','seed','resolution','notes','VAE','vae']);
-      const extra=Object.entries(g).filter(([k,v])=>!known.has(k)&&v!==undefined&&v!==null&&v!=='');
-      dlgExtra.innerHTML = extra.length
-        ? extra.map(([k,v])=>`<div class='mono'>${k}</div><div class='mono'>${v}</div>`).join('')
-        : `<div class='mono'>(tomt)</div><div></div>`;
+      const known = new Set(['title','file','tags','prompt','negative','checkpoint','loras','sampler','steps','cfg','seed','resolution','notes','VAE','vae']);
+      const extra = Object.entries(g).filter(([k,v])=>!known.has(k) && v!==undefined && v!==null && v!=='');
+      dlgExtra.innerHTML = extra.length ? extra.map(([k,v])=>`<div class='mono'>${k}</div><div class='mono'>${v}</div>`).join('') : `<div class='mono'>(tomt)</div><div></div>`;
 
       dlg.showModal();
     }
 
-    document.getElementById('closeDlg').addEventListener('click',()=>dlg.close());
-    document.getElementById('copyMeta').addEventListener('click',()=>{
-      const txt=`Title: ${dlgTitle.textContent}
-Tags: ${dlgTags.textContent}
-
-Prompt:
-${dlgPrompt.textContent}
-
-Negative:
-${dlgNPrompt.textContent}
-
-Checkpoint: ${dlgCkpt.textContent}
-VAE: ${dlgVae.textContent}
-LoRA: ${dlgLoras.textContent}
-Sampler: ${dlgSampler.textContent}
-Steps: ${dlgSteps.textContent}
-CFG: ${dlgCfg.textContent}
-Seed: ${dlgSeed.textContent}
-Resolution: ${dlgRes.textContent}
-
-Advanced:
-${dlgExtra.textContent}
-
-Notes: ${dlgNotes.textContent}`;
+    document.getElementById('closeDlg').addEventListener('click', ()=> dlg.close());
+    document.getElementById('copyMeta').addEventListener('click', ()=>{
+      const txt = `Title: ${dlgTitle.textContent}\nTags: ${dlgTags.textContent}\n\nPrompt:\n${dlgPrompt.textContent}\n\nNegative:\n${dlgNPrompt.textContent}\n\nCheckpoint: ${dlgCkpt.textContent}\nVAE: ${dlgVae.textContent}\nLoRA: ${dlgLoras.textContent}\nSampler: ${dlgSampler.textContent}\nSteps: ${dlgSteps.textContent}\nCFG: ${dlgCfg.textContent}\nSeed: ${dlgSeed.textContent}\nResolution: ${dlgRes.textContent}\n\nAdvanced:\n${dlgExtra.textContent}\n\nNotes: ${dlgNotes.textContent}`;
       navigator.clipboard.writeText(txt).then(()=>alert('Metadata kopierad till urklipp.'));
     });
 
-    buildTagOptions();
-    render();
+    // === JSON loading & rendering ===
+    let DATA = [];
+    async function load(){
+      try{
+        const res = await fetch('gallery.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('Kunde inte läsa gallery.json');
+        DATA = await res.json();
+        buildTagOptions();
+        render();
+      }catch(err){
+        grid.innerHTML = `<div class='control'>Misslyckades att läsa <span class="mono">gallery.json</span>: ${err}</div>`;
+      }
+    }
+
+    function buildTagOptions(){
+      const all = uniq(DATA.map(g=>g.tags||[]));
+      for(const t of all){ const opt=document.createElement('option'); opt.value=t; opt.textContent=t; tagFilter.appendChild(opt); }
+    }
+
+    function matchesQuery(g,q){ if(!q) return true; const hay=[g.title,...(g.tags||[]),g.prompt,g.negative,g.checkpoint,(g.loras||[]).join(',')].map(v=>String(v||'').toLowerCase()).join('\n'); return hay.includes(String(q).toLowerCase()); }
+    function matchesTag(g,tag){ if(!tag) return true; return (g.tags||[]).includes(tag); }
+
+    function render(){
+      const q = search.value.trim();
+      const t = tagFilter.value;
+      grid.innerHTML = '';
+      DATA.filter(g=>matchesQuery(g,q)&&matchesTag(g,t)).forEach(g=>grid.appendChild(card(g)));
+      if(!grid.children.length){ const empty=document.createElement('div'); empty.className='control'; empty.textContent='Inga bilder matchar filtret. Justera sökningen.'; grid.appendChild(empty); }
+    }
+
+    search.addEventListener('input', render);
+    tagFilter.addEventListener('change', render);
+
+    load();
   </script>
 </body>
 </html>
+
