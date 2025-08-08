@@ -68,7 +68,7 @@
 <body>
   <header>
     <h1>Jonte – SDXL Showroom</h1>
-    <div class="lead">Ett enkelt galleri för AI‑bilder med metadata (prompt, checkpoint, LoRA, parametrar). Dela länken med de du vill ska se.</div>
+    <div class="lead">Välkommen till mitt enkla galleri för AI‑bilder med metadata (prompt, checkpoint, LoRA, parametrar).</div>
 
     <div class="controls">
       <div class="control"><input id="search" placeholder="Sök (titel, taggar, prompt)…" /></div>
@@ -143,20 +143,26 @@
     // ===
     const GALLERY = [
       {
-        title: "Skogsgläntan – Julia",
-        file: "images/sample-01.jpg", // byt till din fil
-        tags: ["portrait", "sdxl", "natural light"],
+        title: "Äpplet",
+        file: "images/äpple.png", // byt till din fil
+        tags: ["fruit", "sdxl", "natural light"],
         nsfw: false,
-        prompt: "(masterpiece), (best quality), cinematic light, soft skin, freckles, forest clearing, morning haze",
-        negative: "lowres, bad anatomy, extra fingers, text, watermark",
-        checkpoint: "sd_xl_base_1.0 + refiner",
-        loras: ["freckle_enhancer_xl_v2 (0.7)", "soft_skin_glow_xl (0.5)"],
-        sampler: "DPM++ 2M Karras",
-        steps: 35,
-        cfg: 5.5,
-        seed: 123456789,
-        resolution: "1024×1280",
-        notes: "Ljus nyckel var att hålla CFG under 6 för att inte krossa hudtonerna."
+        prompt: "Close up of an apple, sun rays reflect faint colors on the glass-apple. The apple rests on a wooden table outdoors, blurry background, soft golden light, kodak portra 400, 85mm lens, shallow depth of field, DSLR photo, analog photography",
+        negative: "low quality, poor lighting, watermark",
+        checkpoint: "epicrealismXL_vxviLastfameRealism",
+        VAE: "sdxl_vae",
+        loras: ["add-detail-xl (1.5)", "cinestyle (0.6)", "Flux-XL_Scenery (0.6)", "Deep_depth_of_field (0.7)"],
+        sampler: "DPM++ 2M SDE Heun",
+        steps: "40",
+        cfg: "7.5",
+        Hires_upscaler: "R-ESRGAN 4x+",
+        Hires_upscale: "1,5",
+        Hires_steps: "25",
+        Denoising_strength: "0.45",
+        Clip_skip: "2",
+        seed: "1037382391",
+        resolution: "896×1344",
+        notes: "Första steget till att göra ett äpple i glas."
       },
       {
         title: "Neon Alley Runner",
