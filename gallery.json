@@ -44,5 +44,28 @@
     "Clip_skip": "2",
 
     "notes": "Ett visuellt möte mellan själ och skog"
+  },
+  {
+    "title": "Winston",
+    "file": "images/vovveiskogen.png",
+    "tags": ["skog", "hund"],
+    "prompt": "award winning wildlife (medium long shot:1.4), 35mm film movie still, ultra photorealistic, photorealism, (upper profile) shot of a defeated old dog in pain with the (sunken head:1.4) mourning (looking depressed down:1.2), (glossy eyes) cinestill, film grain, taken with hasselblad H6D 100c, the HCD 24mm lens, hazy mood, cinematic dramatic lighting, cold muted colors, (DOF:1.4), (dark lush jungle background), sharp focus, (perfect real extremely details), amazing fine detail, absurdres, hyper realistic lifelike texture, dramatic lighting",
+    "negative": " watermark, low quality",
+    "checkpoint": "juggernautXL_ragnarokBy",
+    "VAE": "sdxl_vae",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE",
+    "steps": 30,
+    "cfg": 6,
+    "seed": 2272693752,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "none",
+    "Hires_upscale": "-",
+    "Hires_steps": "-",
+    "Denoising_strength": "-",
+    "Clip_skip": "2",
+
+    "notes": "Winston"
   }
 ]
