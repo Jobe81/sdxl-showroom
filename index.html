@@ -24,12 +24,33 @@
     .tag{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:#0f121a;color:#cfd3d7}
     .open{margin-top:10px;background:#151a22;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;cursor:pointer}
     .open:hover{border-color:#2a3243}
+
+    /* ===== Modal & dialog ===== */
     dialog{width:min(980px,95vw);border:none;padding:0;border-radius:16px;overflow:hidden;background:var(--panel);color:var(--text)}
     dialog::backdrop{background:rgba(0,0,0,.6)}
-    .modal{display:grid;grid-template-columns:1fr 1fr}
-    .modal .left{background:#0b0d12}
+    /* Hindra att scroll-beteenden bubblar ut från dialogen i vissa browsers */
+    dialog[open]{overscroll-behavior:contain}
+
+    /* Själva modalen (grid) – begränsa höjden och göm spill */
+    .modal{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      max-height:85vh;          /* <-- viktig höjdgräns för hela modalen */
+      overflow:hidden;          /* <-- göm spill så vi bara scrollar i högerkolumnen */
+    }
+    .modal .left{background:#0b0d12; min-height:0}
     .modal img{width:100%;height:100%;object-fit:contain;background:#0b0d12}
-    .modal .right{padding:16px 18px;border-left:1px solid var(--border);max-height:80vh;overflow:auto}
+
+    /* Högerkolumnen får egen scroll */
+    .modal .right{
+      padding:16px 18px;
+      border-left:1px solid var(--border);
+      max-height:85vh;          /* <-- måste matcha .modal max-height */
+      overflow:auto;            /* <-- egen scroll */
+      -webkit-overflow-scrolling:touch; /* momentumscroll i iOS */
+      min-height:0;
+    }
+
     .row{margin:10px 0}
     .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:6px}
     .value{white-space:pre-wrap;line-height:1.4}
@@ -40,13 +61,30 @@
     .btn{background:#1a1f2b;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;cursor:pointer}
     .btn:hover{border-color:#2a3243}
     footer{max-width:1200px;margin:24px auto;padding:0 20px;color:var(--muted);font-size:12px}
-    @media(max-width:800px){.modal{grid-template-columns:1fr}.modal .right{border-left:none;border-top:1px solid var(--border);max-height:70vh}}
+
+    /* Lås bakgrundens scroll när dialogen är öppen */
+    html.no-scroll, body.no-scroll{
+      overflow:hidden !important;
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+    }
+
+    @media(max-width:800px){
+      .modal{grid-template-columns:1fr; max-height:80vh}
+      .modal .right{
+        border-left:none;
+        border-top:1px solid var(--border);
+        max-height:60vh;        /* lite lägre på mobil för att ge plats åt titel/bild */
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Jonte – SDXL Showroom</h1>
-    <div class="lead">Välkommen till mitt galleri för AI‑bilder med metadata (prompt, checkpoint, LoRA, parametrar).</div>
+    <div class="lead">Välkommen till mitt galleri för AI-bilder med metadata (prompt, checkpoint, LoRA, parametrar).</div>
     <div class="controls">
       <div class="control"><input id="search" placeholder="Sök (titel, taggar, prompt)…" /></div>
       <div class="control">
@@ -90,8 +128,6 @@
     </div>
   </dialog>
 
-
-
   <script>
     const grid = document.getElementById('grid');
     const search = document.getElementById('search');
@@ -131,6 +167,11 @@
       return el;
     }
 
+    function lockScroll(on){
+      document.documentElement.classList.toggle('no-scroll', on);
+      document.body.classList.toggle('no-scroll', on);
+    }
+
     function openModal(g){
       dlgImg.src = g.file; dlgImg.alt = g.title||'';
       dlgTitle.textContent = g.title||'';
@@ -152,9 +193,27 @@
       dlgExtra.innerHTML = extra.length ? extra.map(([k,v])=>`<div class='mono'>${k}</div><div class='mono'>${v}</div>`).join('') : `<div class='mono'>(tomt)</div><div></div>`;
 
       dlg.showModal();
+      lockScroll(true);
     }
 
     document.getElementById('closeDlg').addEventListener('click', ()=> dlg.close());
+    dlg.addEventListener('close', ()=> lockScroll(false));
+
+    // Stäng med ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && dlg.open){ dlg.close(); }
+    });
+
+    // Stäng när man klickar på backdrop (klick utanför den inre .modal)
+    dlg.addEventListener('click', (e)=>{
+      const rect = dlg.getBoundingClientRect();
+      const inDialog = (
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top  && e.clientY <= rect.bottom
+      );
+      if(!inDialog){ dlg.close(); }
+    });
+
     document.getElementById('copyMeta').addEventListener('click', ()=>{
       const txt = `Title: ${dlgTitle.textContent}\nTags: ${dlgTags.textContent}\n\nPrompt:\n${dlgPrompt.textContent}\n\nNegative:\n${dlgNPrompt.textContent}\n\nCheckpoint: ${dlgCkpt.textContent}\nVAE: ${dlgVae.textContent}\nLoRA: ${dlgLoras.textContent}\nSampler: ${dlgSampler.textContent}\nSteps: ${dlgSteps.textContent}\nCFG: ${dlgCfg.textContent}\nSeed: ${dlgSeed.textContent}\nResolution: ${dlgRes.textContent}\n\nAdvanced:\n${dlgExtra.textContent}\n\nNotes: ${dlgNotes.textContent}`;
       navigator.clipboard.writeText(txt).then(()=>alert('Metadata kopierad till urklipp.'));
@@ -179,7 +238,11 @@
       for(const t of all){ const opt=document.createElement('option'); opt.value=t; opt.textContent=t; tagFilter.appendChild(opt); }
     }
 
-    function matchesQuery(g,q){ if(!q) return true; const hay=[g.title,...(g.tags||[]),g.prompt,g.negative,g.checkpoint,(g.loras||[]).join(',')].map(v=>String(v||'').toLowerCase()).join('\n'); return hay.includes(String(q).toLowerCase()); }
+    function matchesQuery(g,q){
+      if(!q) return true;
+      const hay=[g.title,...(g.tags||[]),g.prompt,g.negative,g.checkpoint,(g.loras||[]).join(',')].map(v=>String(v||'').toLowerCase()).join('\n');
+      return hay.includes(String(q).toLowerCase());
+    }
     function matchesTag(g,tag){ if(!tag) return true; return (g.tags||[]).includes(tag); }
 
     function render(){
@@ -187,7 +250,12 @@
       const t = tagFilter.value;
       grid.innerHTML = '';
       DATA.filter(g=>matchesQuery(g,q)&&matchesTag(g,t)).forEach(g=>grid.appendChild(card(g)));
-      if(!grid.children.length){ const empty=document.createElement('div'); empty.className='control'; empty.textContent='Inga bilder matchar filtret. Justera sökningen.'; grid.appendChild(empty); }
+      if(!grid.children.length){
+        const empty=document.createElement('div');
+        empty.className='control';
+        empty.textContent='Inga bilder matchar filtret. Justera sökningen.';
+        grid.appendChild(empty);
+      }
     }
 
     search.addEventListener('input', render);
@@ -197,4 +265,3 @@
   </script>
 </body>
 </html>
-
