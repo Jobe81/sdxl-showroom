@@ -21,5 +21,28 @@
     "Clip_skip": "2",
 
     "notes": "Första steget till att göra ett äpple i glas."
+  },
+  {
+    "title": "Tanke i skog",
+    "file": "images/grönskogfinal.png",
+    "tags": ["skog", "kvinna"],
+    "prompt": "A surreal double exposure portrait of a woman with a forest growing inside her silhouette. Deep green tones, metaphorical visual.",
+    "negative": " watermark, bad anatomy, ugly, low quality",
+    "checkpoint": "juggernautXL_ragnarokBy",
+    "VAE": "sdxl_vae",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE Karras",
+    "steps": 30,
+    "cfg": 6,
+    "seed": 2641779690,
+    "resolution": "896x1152",
+
+    "Hires_upscaler": "R-ESRGAN 4x+",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "15",
+    "Denoising_strength": "0.33",
+    "Clip_skip": "2",
+
+    "notes": "Ett visuellt möte mellan själ och skog"
   }
 ]
