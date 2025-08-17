@@ -25,7 +25,7 @@
   {
     "title": "Tanke i skog",
     "file": "images/grönskogfinal.png",
-    "tags": ["skog", "kvinna"],
+    "tags": ["forrest", "woman", "surreal"],
     "prompt": "A surreal double exposure portrait of a woman with a forest growing inside her silhouette. Deep green tones, metaphorical visual.",
     "negative": " watermark, bad anatomy, ugly, low quality",
     "checkpoint": "juggernautXL_ragnarokBy",
@@ -48,7 +48,7 @@
   {
     "title": "Winston",
     "file": "images/vovveiskogen.png",
-    "tags": ["skog", "hund"],
+    "tags": ["forrest", "dog"],
     "prompt": "award winning wildlife (medium long shot:1.4), 35mm film movie still, ultra photorealistic, photorealism, (upper profile) shot of a defeated old dog in pain with the (sunken head:1.4) mourning (looking depressed down:1.2), (glossy eyes) cinestill, film grain, taken with hasselblad H6D 100c, the HCD 24mm lens, hazy mood, cinematic dramatic lighting, cold muted colors, (DOF:1.4), (dark lush jungle background), sharp focus, (perfect real extremely details), amazing fine detail, absurdres, hyper realistic lifelike texture, dramatic lighting",
     "negative": " watermark, low quality",
     "checkpoint": "juggernautXL_ragnarokBy",
@@ -66,6 +66,29 @@
     "Denoising_strength": "-",
     "Clip_skip": "2",
 
-    "notes": "Winston"
+    "notes": "Bilden skildrar Winston i skogens skuggor, med uttryck av sorg och eftertanke. Ett försök att med hjälp av det filmiska ljuset och de dämpade färgerna förmedla en känsla av stillhet, lojalitet och melankoli."
+  },
+  {
+    "title": "Ethereal Smoke – Pastel Dream",
+    "file": "images/tjej-rök.png",
+    "tags": ["pastel colors", "woman", "smoke"],
+    "prompt": "hyper realistic portrait of a beautiful young woman, dreamy ethereal atmosphere, pastel smoke clouds around face, soft flowing smoke trails, vibrant pastel colors (lavender, aqua, peach, pink), cinematic lighting, glossy lips, colorful eyeshadow, fashion magazine cover style, surreal yet elegant composition, sharp details, high-end editorial photography",
+    "negative": "blurry, out of focus, distorted face, bad anatomy, duplicate face, messy artifacts, watermark, text, extra limbs, deformed hands, low resolution",
+    "checkpoint": "epicrealismXL_vxviiCrystalclear",
+    "VAE": "sdxl_vae",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE",
+    "steps": 30,
+    "cfg": 5,
+    "seed": 708752126,
+    "resolution": "896x1152",
+
+    "Hires_upscaler": "4x_UniversalUpscalerV2-Sharp_101000_G",
+    "Hires_upscale": "2",
+    "Hires_steps": "15",
+    "Denoising_strength": "0.45",
+    "Clip_skip": "2",
+
+    "notes": "Bilden utforskar mötet mellan realism och surrealism, en balans mellan modefotografi och konstnärlig fantasi."
   }
 ]
