@@ -90,5 +90,28 @@
     "Clip_skip": "2",
 
     "notes": "Bilden utforskar mötet mellan realism och surrealism, en balans mellan modefotografi och konstnärlig fantasi."
+  },
+  {
+    "title": "Blick över bergen",
+    "file": "images/röd jacka.png",
+    "tags": ["mountain", "nature", "girl"],
+    "prompt": "a beautiful young swedish woman sitting on a flat rock in a forest clearing in the Swedish mountains, seen from behind, wearing a red hiking jacket and light blue shirt, relaxed posture, scenic valley view, pine trees around, distant snowy peaks, natural summer light, cinematic outdoor atmosphere, realistic textures, soft wind in her hair, contemplative moment, kodak portra 400, 85mm lens, shallow depth of field, DSLR photo, analog photography",
+    "negative": "blurry, front view, face visible, fantasy art, stylized, overexposed, digital painting, cartoon, lowres, erotic, nudity, smooth plastic skin, unrealistic environment",
+    "checkpoint": "epicrealismXL_vxviiCrystalclear",
+    "VAE": "sdxl_vae",
+    "loras": ["add-detail-xl (1.5)", "clothing-texture-xl (0.6)", "cinestyle (0.6)", "Flux-XL_Scenery (0.6)", "Deep_depth_of_field (0.7)"],
+    "sampler": "DPM++ 2M SDE Heun",
+    "steps": 40,
+    "cfg": 6,
+    "seed": 1752763994,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "4x_UniversalUpscalerV2-Sharp_101000_G",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "25",
+    "Denoising_strength": "0.45",
+    "Clip_skip": "2",
+
+    "notes": "Ett försök till att skapa en känsla av autenticitet och fotografisk realism genom att balansera det naturliga ljuset med motivet."
   }
 ]
