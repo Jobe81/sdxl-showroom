@@ -115,6 +115,29 @@
     "notes": "Ett visuellt möte mellan själ och skog"
   },
   {
+    "title": "Tanke i skog 2.0",
+    "file": "images/00224-113372606.png",
+    "tags": ["forrest", "woman", "surreal"],
+    "prompt": "A surreal double exposure portrait of a woman’s profile, her silhouette filled with the image of a dense mystical forest, tall trees merging with her form as if nature is part of her soul. Ethereal atmosphere with soft mist weaving through the woods inside her shape, deep emerald and forest green tones, symbolic and metaphorical, representing the unity between human spirit and nature. Cinematic composition, dreamy lighting, hyperdetailed, masterpiece, UHD, 8k, fine art photography, inspired by conceptual surrealism.",
+    "negative": " watermark, bad anatomy, ugly, low quality",
+    "checkpoint": "juggernautXL_ragnarokBy",
+    "VAE": "sdxl_vae",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE Karras",
+    "steps": 31,
+    "cfg": 6,
+    "seed": 1133726069,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "4x_NMKD-Siax_200k",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "15",
+    "Denoising_strength": "0.33",
+    "Clip_skip": "2",
+
+    "notes": "Bättre och utförligare prompt samt bättre uppskalare."
+  },
+  {
     "title": "Winston",
     "file": "images/vovveiskogen.png",
     "tags": ["forrest", "dog"],
