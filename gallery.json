@@ -23,6 +23,29 @@
     "notes": "Första steget till att göra ett äpple i glas."
   },
   {
+    "title": "Äpple i glas",
+    "file": "images/glasäpple.png",
+    "tags": ["fruit", "natural light", "glass"],
+    "prompt": "a close-up photo of a realistic apple made entirely of transparent colored glass, refracting the sunlight through its surface, glass caustics on the wooden table, rainbow light scattering inside the apple, detailed reflections and highlights, shallow depth of field, 85mm lens, Kodak Portra 400 film, soft bokeh background, analog photography, DSLR shot",
+    "negative": "blurry, low quality, unrealistic, plastic, metal, solid apple, painted apple, opaque, matte surface, distortion, watermark",
+    "checkpoint": "jepicrealismXL_vxviLastfameRealism",
+    "VAE": "sdxl_vae",
+    "loras": ["add-detail-xl (1.5)", "cinestyle (0.6)", "Flux-XL_Scenery (0.6)", "Deep_depth_of_field (0.6)"],
+    "sampler": "DPM++ 2M SDE Heun",
+    "steps": 40,
+    "cfg": 7.5,
+    "seed": 3505220573,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "-",
+    "Hires_upscale": "-",
+    "Hires_steps": "-",
+    "Denoising_strength": "0.7",
+    "Clip_skip": "2",
+
+    "notes": "Använde grundbilden Äpplet i ControlNet för att styra om motivet till glas."
+  },
+  {
     "title": "Dansen",
     "file": "images/00217-3140372488.png",
     "tags": ["sketch", "woman", "dance"],
@@ -44,6 +67,29 @@
     "Clip_skip": "2",
 
     "notes": "JuggernautXL, en modell som verkligen visar sin mångsidighet genom att sömlöst växla mellan hyperrealistiska porträtt och stiliserad konst. Den här bilden fångar elegansen i en bläckskiss och rörelsens flöde, och visar att Juggernaut inte är begränsad till realism utan lika lätt kan uttrycka abstrakta och poetiska stilar."
+  },
+  {
+    "title": "Den gamla bondhustrun",
+    "file": "images/00216-211617619.png",
+    "tags": ["oil painting", "woman"],
+    "prompt": "hyperrealistic oil painting of an old peasant woman working in the field, weathered face, traditional clothing, bending down planting crops, earthy tones, detailed hands in soil, overcast rural sky, masterpiece realism, inspired by 19th century European art, dramatic light and texture",
+    "negative": "-",
+    "checkpoint": "juggernautXL_ragnarokBy",
+    "VAE": "none",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE",
+    "steps": 39,
+    "cfg": 4,
+    "seed": 2116176198,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "4x_NMKD-Siax_200k",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "15",
+    "Denoising_strength": "0.3",
+    "Clip_skip": "2",
+
+    "notes": "Slit och livskraft. Den här bilden fångar en äldre kvinna i arbetet på fälten, med varje rynka och varje åder i händerna som ett vittnesbörd om ett liv nära jorden. Återigen visar JuggernautXL här sin förmåga att inte bara skapa hyperrealism, utan också förmedla känslan av ett tidlöst oljemåleri."
   },
   {
     "title": "Tanke i skog",
