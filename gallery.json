@@ -23,6 +23,29 @@
     "notes": "Första steget till att göra ett äpple i glas."
   },
   {
+    "title": "Dansen",
+    "file": "images/00217-3140372488.png",
+    "tags": ["sketch", "woman", "dance"],
+    "prompt": "elegant ink sketch of a graceful young woman dancing, flowing dress made of swirling lines, dynamic pose, wind in her hair, minimalist white background, fine art illustration, black and white, sense of motion and freedom, high detail linework, ethereal atmosphere",
+    "negative": "-",
+    "checkpoint": "juggernautXL_ragnarokBy",
+    "VAE": "none",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE",
+    "steps": 39,
+    "cfg": 4,
+    "seed": 3140372488,
+    "resolution": "896x1344",
+
+    "Hires_upscaler": "4x_NMKD-Siax_200k",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "15",
+    "Denoising_strength": "0.3",
+    "Clip_skip": "2",
+
+    "notes": "JuggernautXL, en modell som verkligen visar sin mångsidighet genom att sömlöst växla mellan hyperrealistiska porträtt och stiliserad konst. Den här bilden fångar elegansen i en bläckskiss och rörelsens flöde, och visar att Juggernaut inte är begränsad till realism utan lika lätt kan uttrycka abstrakta och poetiska stilar."
+  },
+  {
     "title": "Tanke i skog",
     "file": "images/grönskogfinal.png",
     "tags": ["forrest", "woman", "surreal"],
