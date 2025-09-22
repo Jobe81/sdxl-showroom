@@ -1,5 +1,51 @@
 [
   {
+    "title": "Kullersten och Klocktorn",
+    "file": "images/målning hbg.png",
+    "tags": ["city", "painting"],
+    "prompt": "watercolor sketch art of a Swedish coastal town street, inspired by Helsingborg or Göteborg, narrow cobbled lane framed by old buildings in soft warm tones, wooden windows, steep rooftops, classic nordic architecture, watercolor paper texture, soft watercolor washes with expressive pencil lines, muted earthy colors, nostalgic atmosphere, traditional travel sketchbook style, loose hand-drawn strokes and subtle shading",
+    "negative": "photo, photorealistic, realistic, lifelike, CGI, HDR, 3D render, modern buildings, clean surfaces, perfect symmetry, digital look, sharp focus, high detail, watermark, camera artifacts, signature, artist signature, watermark, text, logo, cartoon, anime, car, advertisement",
+    "checkpoint": "cyberrealisticXL_v70",
+    "VAE": "-",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE Karras",
+    "steps": 30,
+    "cfg": 4,
+    "seed": 4075635489,
+    "resolution": "896×1344",
+
+    "Hires_upscaler": "4x_UniversalUpscalerV2-Sharp_101000_G",
+    "Hires_upscale": "1.5",
+    "Hires_steps": "25",
+    "Denoising_strength": "0.35",
+    "Clip_skip": "2",
+
+    "notes": "En stilla förmiddag i en svensk stad där tiden gått långsamt, där kullersterna burit på steg i generationer. Målad i mjuka akvarelltoner med handdragna linjer som fångar både arkitekturen och tystnaden mellan husen. Ett ögonblick av lugn, som om staden själv höll andan."
+  },
+  {
+    "title": "Före orden",
+    "file": "images/korean girl2-bäst.png",
+    "tags": ["woman", "photo", "natural light"],
+    "prompt": "photo of a beautiful korean woman, daylight, indoor soft natural light, minimal makeup, glowy skin, soft lips, calm expression, relaxed shoulders, candid portrait, 35mm DSLR, shallow depth of field, soft beige background",
+    "negative": "anime, cartoon, low resolution, frame, text, logo,black and white, manga, blender, videogame, nude, porn, sexy, erotic",
+    "checkpoint": "realDream_sdxl8",
+    "VAE": "sdxl_vae",
+    "loras": ["-"],
+    "sampler": "DPM++ 2M SDE Karras",
+    "steps": 23,
+    "cfg": 4.5,
+    "seed": 420778467,
+    "resolution": "850×1000",
+
+    "Hires_upscaler": "4x_UniversalUpscalerV2-Sharp_101000_G",
+    "Hires_upscale": "1.6",
+    "Hires_steps": "20",
+    "Denoising_strength": "0.45",
+    "Clip_skip": "2",
+
+    "notes": "Första bilden jag skapade med modellen realDream_sdxl8. Fokus låg på att fånga ett uttryck som kändes naturligt, avskalad från poser och perfektion, ett ögonblick precis före orden."
+  },
+  {
     "title": "Äpplet",
     "file": "images/äpple.png",
     "tags": ["fruit", "sdxl", "natural light"],
